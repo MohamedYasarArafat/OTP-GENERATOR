@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Generator</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+    <!-- https://fontawesome.com/ -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <!-- https://fonts.google.com/ -->
+    <link href="css/magnific-popup.min.css" rel="stylesheet" />
+    <link href="css/tooplate-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="tm-container-fluid">
+      <section
+        class="tm-site-header tm-flex-center tm-mb-50 tm-bgcolor-1 tm-border-rounded"
+      >
+        <h2>OTP Generator</h2>
+        <input type="text" name="limit" id="limit" style="width: 7rem;text-align: center;" placeholder="limit" value="4" autocomplete="off"/>
+        <button onclick="generateOTP()" class="generate-btn">OPT Generator</button>
+        <h1 id="otpVal">Loading...</h1>
+      </section>
+
+      <section class="tm-about tm-mb-80 tm-p-50 tm-bgcolor-2 tm-border-rounded">
+        <div class="tm-about-header tm-flex-center">
+            <img style="width: 16rem;" src="../renderer/1024x1024.png"></img>
+          <!-- <i class="fas fa-users fa-2x"></i>
+          <h2>About Us</h2> -->
+        </div>
+        <div class="tm-about-text">
+          <p class="tm-mb-40">
+            Passionate software Engineer with 6+ of experience in web
+development. Proven record of escalating customer satisfaction and
+increasing user interaction through timely implementation of cutting-
+edge designs, cutting development time, and integration of third-
+party services.
+          </p>
+          <p class="tm-mb-0">
+            Follow me on LinkedIn
+            <a
+              rel="nofollow"
+              href="https://www.linkedin.com/in/yasar-arafath-64b4b0293/"
+              target="_blank"
+              ><i class="fab fa-linkedin-in fa-2x"></i></a
+            >
+          if you have anything to say.
+          </p>
+          <p class="tm-mb-0">
+            Follow me on LinkedIn
+            <a
+              rel="nofollow"
+              href="https://github.com/MohamedYasarArafat"
+              target="_blank"
+              ><i class="fab fa-github fa-2x"></i></a
+            >
+          if you have anything to say.
+          </p>
+        </div>
+      </section>
+
+      <div class="tm-gallery-section tm-mb-80">
+        <!--  -->
+      </div>
+
+      <!-- <section class="tm-contact tm-mb-50 tm-bgcolor-3 tm-border-rounded">
+        
+      </section> -->
+
+      <!-- <footer class="tm-footer">
+        Copyright 2024 
+        <a rel="sponsored" href="https://github.com/MohamedYasarArafat" class="tm-link-gray"
+          >MohamedYasarArafat</a
+        >
+      </footer> -->
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script>
+      $(function () {
+        // Init the image gallery
+        var $gallery = $(".tm-gallery").isotope({
+          itemSelector: ".tm-gallery-item",
+          layoutMode: "fitRows",
+        });
+
+        // Layout Isotope after each image loads
+        $gallery.imagesLoaded().progress(function () {
+          $gallery.isotope("layout");
+        });
+
+        $(".filters-button-group").on("click", "a", function (e) {
+          e.preventDefault();
+          var filterValue = $(this).attr("data-filter");
+          $gallery.isotope({ filter: filterValue });
+          $(".filters-button-group a").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        // Magnific Pop up
+        $(".tm-gallery").magnificPopup({
+          delegate: "a",
+          type: "image",
+          gallery: { enabled: true },
+        });
+      });
+      function generateOTP() {
+        const digits = "0123456789";
+        const limit = document.getElementById('limit')?.value;
+        let OTP = "";
+        for (let i = 0; i < limit; i++) {
+          OTP += digits[Math.floor(Math.random() * 10)];
+        }
+        const div = document.getElementById('otpVal');
+        div.innerHTML = OTP;
+        return OTP;
+      }
+    </script>
+  </body>
+</html>

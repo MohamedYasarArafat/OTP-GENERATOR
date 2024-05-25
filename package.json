@@ -1,0 +1,26 @@
+{
+  "name": "otp-generator",
+  "version": "1.0.0",
+  "productName": "OTP GENERATOR",
+  "description": "OTP generator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedYasarArafat/OTP-GENERATOR.git"
+  },
+  "keywords": [
+    "OTP"
+  ],
+  "author": "yasar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MohamedYasarArafat/OTP-GENERATOR/issues"
+  },
+  "homepage": "https://github.com/MohamedYasarArafat/OTP-GENERATOR#readme",
+  "dependencies": {
+    "electron": "^30.0.8"
+  }
+}
